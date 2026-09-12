@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laksh Ki Janeman • Shubhi Meri Jaan ❤️🔥</title>
+  <title>Bantai Ki Bandi • Shubhi Meri Jaan ❤️🔥</title>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -159,6 +159,7 @@
       align-items: center;
       justify-content: center;
       padding: 0 6px;
+      line-height: 1.35;
     }
 
     .gif-controls {
@@ -304,7 +305,7 @@
         <img id="activeGif" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&auto=format&fit=crop&q=80" alt="Couple Hug" />
       </div>
       <div class="caption-box" id="activeCaption">
-        "Chal idhar aa, ekdum tightly pakad ke rakhunga tujhe! 🫂❤️"
+        "Chal idhar aa Shubhi, duniya ki saari thakan nikalne wali jhappi le! 🫂❤️"
       </div>
 
       <div class="gif-controls">
@@ -369,46 +370,246 @@
     }
     setInterval(makeHeart, 450);
 
-    const hugMoments = [
-      {
-        url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&auto=format&fit=crop&q=80",
-        caption: "Chal idhar aa, ekdum tightly pakad ke rakhunga tujhe! 🫂❤️"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&auto=format&fit=crop&q=80",
-        caption: "Saari thakan gayab ho jati hai jab tu gale lagti hai Shubhi! 🥺"
-      }
+    const hugPhotos = [
+      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=800&auto=format&fit=crop&q=80"
     ];
 
-    const kissMoments = [
-      {
-        url: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&auto=format&fit=crop&q=80",
-        caption: "Tere maathe pe ek pyari si kissi meri pyaari Shubhi ke liye! 💋✨"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=800&auto=format&fit=crop&q=80",
-        caption: "Pout mat bana, chup-chap ek sweet si chummi le le! 😘"
-      }
+    const kissPhotos = [
+      "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&auto=format&fit=crop&q=80"
     ];
 
-    let hugIdx = 0;
-    let kissIdx = 0;
+    const kissQuotes = [
+      "Pout band kar Shubhi, pehle ek sweet si forehead kiss le le! 😘",
+      "Tere gore gaalon pe bina permission ek pyaari si chummi udhar rahi! 💋",
+      "Gusse mein laal mat ho, ek kissi kha ke thandi ho ja baby! 🍧",
+      "Section 143 ke tehat tere maathe pe ek permanent kiss booked hai! 📜",
+      "Tere chehre pe ek kissi dete hi mere dil ka battery 100% charged! 🔋",
+      "Aankhein band kar do second ke liye, ek surprise chummi bhej raha hoon! 🙈",
+      "Duniya bhar ka stress ek taraf, tere gaal pe ek kiss ek taraf! ✨",
+      "Chup chap kissi le le, varna 10 aur udhar chadh jayengi! 😜",
+      "Tere gore gaal pe strawberry jaisi mithi chummi ka haq sirf mera hai! 🍓",
+      "Tere maathe pe kiss karna matlab mere pure din ka sukoon! 🕊️",
+      "Chai mein cheeni kam lage toh teri ek sweet kissi kaafi hai! ☕",
+      "Arey meri cutie-pie, itna mat sharma, flying kiss catch kar jaldi! 🪁",
+      "Tu meri Juliet hai aur tere gaal pe kissi karna mera daily routine! 🌹",
+      "Kiss karne ka challan kat ta toh main ab tak sadak pe aa chuka hota! 💸",
+      "Tere naak ke upar ek choti si butterfly kiss meri taraf se! 🦋",
+      "Zindagi set hai bas ek baar tere chehre ko chumne ka mauka mil jaye! 🎬",
+      "Gussa thook de aur ek pyari si chummi leke smile kar na Shubhi! 🥺",
+      "Yeh chummi direct mere dil ke parcel department se aayi hai! 📦",
+      "Tere maathe ki kiss mere pure universe ka sabse pyara safe place hai! 🌌",
+      "Nakhre hazaar honge tere, par chummi lene ka licence sirf mera hai! 📑",
+      "Ek kissi se din shuru, aur ek kissi pe din khatam... bas yahi plan hai! 🌅",
+      "Tere dono gaalon pe ek-ek kiss taaki balance bana rahe! ⚖️",
+      "Aankhein kholi toh kiss gayab, isliye chup chap aankh band kar! 👁️",
+      "Tu meri rasmalai hai aur tere pe kissi banna toh farz hai! 🍮",
+      "Har ladai ka ultimate end: Ek tight wali forehead kiss! 🏁",
+      "Doctor ne subah shaam ek ek kissi lene ki salah di hai Shubhi! 🩺",
+      "Tere innocent chehre pe ekdum soft wali kiss reserved hai! 🧸",
+      "Chori-chupke nahi, chaurahe pe bol ke bolunga ki yeh gaal mera hai! 📢",
+      "Ek chummi tere gusse ke naam, aur ek tere cute pout ke naam! 😈",
+      "Bluetooth se connect karke 4K HD kiss bhej di hai, check kar! 📶",
+      "Aankhein band karo madam, sweet shipment arrive ho chuki hai! 🚚",
+      "Tu chahe kitni bhi gundi ban ja, meri ek kiss se pighal hi jayegi! 🍦",
+      "Tere maathe pe mera naam likh diya ek pyari si kiss ke sath! ✍️",
+      "Kitna bhi bhaag le, meri flying kiss tujhe dhoondh hi legi! 🎯",
+      "Tere gaal itne soft hain ki chummi dete hi dil pighal jata hai! 🧈",
+      "Bas ek forehead kiss aur saare jhagde 2 second mein khatam! 🤝",
+      "Teri aankhon ke kone pe ek nazuk si kiss meri jaan! 👀",
+      "Tu meri bullet ki kick hai, aur tere gaal pe kiss mera ignition! 🏍️",
+      "Yeh kiss sirf Shubhi Mishra ke personal account mein credit hui hai! 💳",
+      "Tere lips pe nahi, pehle tere maathe pe pyaar ka thappa lagega! 👑",
+      "Chup chap khadi reh, warning ke bina ek kiss tapakne wali hai! ⚠️",
+      "Duniya ki saari chocolates ek taraf, teri ek kissi ka meetha ek taraf! 🍫",
+      "Yeh kiss 100% organic aur bina kisi adulteration ke hai! 🌱",
+      "Tu meri jaan hai aur yeh chummi tera official toll tax hai! 🛣️",
+      "Pehle smile de, fir hi doosri kissi ka coupon unlock hoga! 🎟️",
+      "Tere gaalon pe dimple aane se pehle wahan meri kissi aayegi! 🕳️",
+      "Jitni daant padegi, utni zyada chummi wapas milegi baby! 📈",
+      "Duniya gol hai aur meri kissi ka target tera cutie chehra hai! 🌍",
+      "Tu meri life ka jackpot hai, ek kissi toh banti hi hai bantai! 🎰",
+      "Subah ki pehli dhoop aur meri pehli kissi, dono sirf tere liye! ☀️",
+      "Tere gusse wale naak pe ek halki si chummi, ab thandi ho ja! 👃",
+      "Yeh kissi expire nahi hoti, lifetime warranty ke sath aati hai! 🛡️",
+      "Tera chehra dekh ke control khona aur chummi de dena aam baat hai! 🚦",
+      "Ek chummi dosti ki, ek pyaar ki, aur 98 lifetime agreement ki! 🤝",
+      "Tere cute se kaan ke peeche ek sweet si kiss, suni kya? 👂",
+      "Bina maange jo mil jaye use kismat kehte hain, jaise meri chummi! 🍀",
+      "Tere roothne ka intezar rehta hai taaki manane ke bahane chummi doon! 🪤",
+      "Kasam se Shubhi, tere gaalon ka copyright mere paas hona chahiye! 🔒",
+      "Ek kissi se tera bp normal ho jayega baby, try kar! 🩺",
+      "Gulaab ke phool se bhi zyada soft kiss meri jaan ke liye! 🌹",
+      "Ek kiss meri taraf se tere un thake hue dinon ke naam! 🌙",
+      "Yeh chummi high voltage hai, dil sambhal ke rakhna! ⚡",
+      "Tu chahe kitna bhi nakhra dikha, kiss toh leke hi rahunga! 🏹",
+      "Tere maathe pe meri chhap hai, ab tu completely meri hui! 💍",
+      "Kuchh bolo mat, bas aankhein band karke yeh chummi mehsoos karo! 🤫",
+      "Tere chehre ki smile bachaane ke liye 1000 kissi bhi kam hain! 🛡️",
+      "Tu meri Barbie aur yeh kiss tera royal crown! 👑",
+      "Tere maathe ki kiss mere pure din ka silent prayer hai! 🤲",
+      "Abhi ke abhi ek chummi accept karo, receipt baad mein milegi! 🧾",
+      "Tere gaal par chummi dekar bhagne ka maza hi alag hai! 🏃",
+      "Shubhi, tu itni mithi hai ki chummi dene ke baad diabetes na ho jaye! 🍬",
+      "Yeh kissi direct cloud server se dil mein download ho chuki hai! ☁️",
+      "Gusse mein laal gaal aur uspe meri kiss... best combination! 🎨",
+      "Tere cute pouts ko neutral karne ka ek hi formula hai: Kiss! 🧪",
+      "Tere baalon ko peeche karke tere maathe ko chumne ka maza anokha hai! 💇",
+      "Ek chummi subah chai ke sath, aur ek raat ko good night ke sath! 🍵",
+      "Zindagi jhand ho fir bhi teri ek kissi sab theek kar sakti hai! 🛠️",
+      "Tere gaalon pe chummi dene ke liye koi permit nahi chahiye mujhe! 🛑",
+      "Tu meri heartbeat hai aur yeh chummi uska rhythm! 🎵",
+      "Yeh kissi tere un saare anokhe sawalon ka silent jawab hai! ❓",
+      "Aankhein kholo madam, delivery boy ne kiss deliver kar di hai! 🛵",
+      "Tu meri favourite candy hai, aur kissi toh banti hai! 🍭",
+      "Tere gore mukhde pe ek pyara sa pyaar ka thappa! 🖐️",
+      "No cash, no card... yahan sirf kisses ka payment chalta hai! 🏧",
+      "Tere chehre ki masoomiyat dekh ke kissi roki hi nahi ja sakti! 🥺",
+      "Ek forehead kiss tere saare overthinking ko shut down karne ke liye! 🧠",
+      "Yeh chummi direct dil ke factory se freshly manufactured hai! 🏭",
+      "Tere gaal itne pyare hain ki chummi dene ka man baar baar kare! 🔁",
+      "Chup chap kiss le Shubhi, hero ka hukum hai! 🤠",
+      "Tere nakhre premium hain par meri kissi luxury brand hai! 💎",
+      "Ek sweet kiss tere sleepy face ke naam jab tu aalsi banti hai! 🥱",
+      "Tere gore gaal mere favourite painting canvas hain! 🖌️",
+      "Bantai ka promise: Jab milenge, continuous kiss bombardment hogi! 💣",
+      "Yeh kissi tere un saare anjaane darr ko bhaga degi! 🦁",
+      "Tere chehre par ek aisi kiss jo tere chehre ko pura din chamkayegi! 🌟",
+      "Tu meri heroine hai, script mein chummi likhi hui hai! 📜",
+      "Tere gaalon ki lali pe meri kissi ka sign ho chuka hai! ✒️",
+      "Ek chummi bas isliye kyunki tu meri duniya ki sabse pyari ladki hai! 🌏",
+      "Gussa side mein rakh, aur sweet wali kiss apne gaal pe le le! 🍬",
+      "Aakhri nahi hai yeh, bas abhi ke liye ek solid pyaar bhari chummi! 💋❤️"
+    ];
+
+    const hugQuotes = [
+      "Chal idhar aa Shubhi, duniya ki saari thakan nikalne wali jhappi le! 🫂",
+      "Tere gale lagte hi dil ki dharkan normal ho jaati hai meri jaan! 💓",
+      "Itna tight hug dunga ki saari pareshaniyan pichak ke bahar ho jayengi! 🎈",
+      "Mera permanent home kisi building mein nahi, tere gale lagne mein hai! 🏡",
+      "Chup chap bina bole aake gale lag ja, bhot miss kar raha tha! 🥺",
+      "Ek aisi jhappi jisme duniya ka saara shor ekdum silent ho jaye! 🔇",
+      "Tere kandhe pe sar rakh ke aadhi zindagi guzar sakti hai Shubhi! 🛌",
+      "Aaja bantai ki bandi, ek super-tight bear hug le le jaldi! 🐻",
+      "Winter season ho ya summer, teri warm jhappi har mausam ka ilaaj hai! ☕",
+      "Tere gale lagna matlab WiFi automatic reconnect ho jana! 📶",
+      "No arguments allowed, chup chap do minute ke liye gale lag ja! ⏱️",
+      "Jab tu gale lagti hai na, lagta hai bhagwan ne sun li meri dua! 🤲",
+      "Tu meri favorite pillow hai aur main tera permanent hug partner! 🛋️",
+      "Gussa baad mein karna, pehle aake ek lambi wali jhappi le! 🛑",
+      "Tere se dur rehna torture hai, aake tight hug de de na please! ⛓️",
+      "Tera sar mere seene pe aur mera haath tere baalon mein... perfect! 💆",
+      "Ek aisi jhappi jisse tere saare negative thoughts gayab ho jayein! 🧹",
+      "Yeh hug sirf dost wala nahi, pure rights ke sath wala life partner hug hai! 💍",
+      "Tu mere seene se lage aur time wahi freeze ho jaye, bas yahi chahiye! ⏳",
+      "Saari ladaiyaan ek taraf, tere gale lagne ka sukoon ek taraf! 🕊️",
+      "Jitna ziddi tu hai, utna hi ziddi mera hug hai—chhodunga nahi! 🔒",
+      "Tere chote se frame ko mere pure arms mein wrap kar lunga! 🎁",
+      "Arey meri drama queen, chal aake gale lag aur saara gussa bhool ja! 🎭",
+      "Duniya mein kitni bhi bheed ho, tera hug mera safest corner hai! 🛡️",
+      "Kasam se Shubhi, tere hug se better koi therapy nahi is duniya mein! 🛋️",
+      "Tere gale lagte hi lagta hai jaise bhatka hua musafir ghar aa gaya! 🏠",
+      "Aise pakad ke rakhunga jaise baccha apni favorite chocolate pakadta hai! 🍫",
+      "Ek baar gale lag ja, pure hafte ka battery recharge ho jayega! 🔋",
+      "Tere dil ki dhadkan mere dil se match kare, aisi wali jhappi! 🥁",
+      "Rona band kar aur chup chap mere seene mein chehra chupa le! 🙈",
+      "Duniya chahe kitni bhi rude ho, mera hug tere liye hamesha soft hai! ☁️",
+      "Tu meri jaan hai aur tujhe apni bahon mein rakhna meri duty! 🎖️",
+      "Ek aisa hug jo bina kisi shabd ke sabkuch bol de! 💬",
+      "Kitna bhi bhaag le meri jaan, aana toh meri hi bahon mein hai! 🏃‍♀️",
+      "Tere gale lag ke jo sukoon milta hai na, wo kisi jannat se kam nahi! 🌸",
+      "Yeh hug 100% pure attachment aur zero milaawat se bana hai! 🍯",
+      "Jab tu gussa kare toh baat mat kar, bas aake pakad le mujhe! 🧲",
+      "Tu meri small size wali packet hai, pure arms mein fit ho jaati hai! 📦",
+      "Yeh jhappi tere saare overthinking ke virus ko format maar degi! 💻",
+      "Tere baalon ki khushboo aur tera soft hug... best feeling ever! 🌾",
+      "Koi medicine kaam nahi aati jab tak tera ek pyara hug na mil jaye! 💊",
+      "Tere gale lagte hi lagta hai meri life ki saari puzzles solve ho gayi! 🧩",
+      "Duniya ka sabse tightest knot hamari is jhappi ka hona chahiye! 🪢",
+      "Ek hug un dino ke liye jab tu bina baat ke udas ho jaati hai! 🌧️",
+      "Tu chahe kitni bhi badi ho ja, meri bahon mein hamesha choti bacchi rahegi! 👶",
+      "Mera seena tera personal headrest hai madam, claim kar lo! 💺",
+      "Saara din bhaag daud ke baad tera ek hug... full heaven vibe! 🌌",
+      "Tere gale lagna meri sabse favorite aadat ban chuki hai Shubhi! ☕",
+      "Kuch nahi bolna, bas do minute shanti se gale lage rehna hai! 🤫",
+      "Yeh hug tere un sapno ki protection shield hai jo humne sath dekhe hain! 🛡️",
+      "Chal aaja, ekdum filmy style mein daud ke gale lag ja mere! 🚂",
+      "Tere hath mere waist pe aur mera hath tere kandhe pe... sorted! 🕺",
+      "Tere gale lagne se mere dimaag ke saare tension ke taar jud jaate hain! 💡",
+      "Ek solid jhappi jo keh de: 'Main hamesha tere sath hoon baby'! 🤝",
+      "Duniya ke saare taane ek taraf, tera ek soft hug ek taraf! 🏹",
+      "Bina permission tujhe itna tight hug dunga ki saans atak jaye! 😜",
+      "Tu mera teddy bear hai aur main tera permanent hugger! 🧸",
+      "Kasam se, tere jhappi ke bina din adhoora adhoora sa lagta hai! 🌓",
+      "Tere gale lagte hi lagta hai ab koi dukh chu bhi nahi sakta! 🏰",
+      "Aaja meri cute chudail, tujhe gale laga ke shant kar doon! 🧙‍♀️",
+      "Ek aisi jhappi jisse sab theek ho jaye, chahe halaat kuch bhi hon! 🌈",
+      "Tera wazan mere seene pe ho aur shaam dhal rahi ho... dream! 🌇",
+      "Tu meri strength hai, aur tera hug meri energy drink! 🥤",
+      "Tere gale lagte hi mere andar ka gunda ekdum shareef ban jata hai! 😇",
+      "Ek aisi jhappi jisme sirf pyaar ho, no complaints, no drama! 🕊️",
+      "Tu thak gayi hai na? Chal chup chap aa aur gale lag ja mere! 🫂",
+      "Tere hath ko pakadna accha hai, par tere gale lagna lajawab hai! ✨",
+      "Yeh hug kisi VIP entry se kam nahi hai meri jaan! 🎟️",
+      "Gale lag ke jo warmth milti hai, wo kisi blanket mein nahi hai! 🧣",
+      "Tere se door reh ke realise hota hai ki tera hug kitna zaroori hai! 📍",
+      "Chal saare shiqwe bhool ja aur ek tight wali jhappi se deal seal kar! 🤝",
+      "Tere gale lagte hi dil ka meter seedha happy mode pe switch ho jata hai! 📈",
+      "Mera pura astitva sirf tujhe apni bahon mein sametne ke liye hai! 🌊",
+      "Jab tu gale lagti hai na Shubhi, lagta hai waqt yahi tham gaya hai! ⏸️",
+      "Tere bina thand lagti hai dil ko, ek warm jhappi ki sakht zaroorat hai! ❄️",
+      "Yeh hug tera birthright hai, jab chahe tab aake le sakti hai! 📜",
+      "Aise gale lagunga ki hawa bhi hamare beech se na nikal sake! 🌬️",
+      "Tere gaal mere seene pe tikte hi mujhe duniye ki sabse badi daulat mil jaati hai! 👑",
+      "Ek aisi jhappi jo tere saare ansuon ko sookh le! 💧",
+      "Tu meri zindagi ka sabse pyara safe-house hai Shubhi! 🏕️",
+      "Aaja bantai, bina kisi formality ke seedha hug transfer karo! 📲",
+      "Tere baalon ko sehla kar gale lagana meri favorite therapy hai! 💆‍♂️",
+      "Tu meri cute si partner hai, tujhe gale lagana mera daily target hai! 🎯",
+      "Ek solid hug un sabhi baaton ke naam jo hum labzon mein nahi keh paate! 🤐",
+      "Tere gale lag ke lagta hai main duniya ka sabse powerful insaan hoon! 🦾",
+      "Chup chap gale lag ja, varna 1 ghante tak chhodunga nahi! ⏰",
+      "Saari duniya ki problem choti lagne lagti hai jab tu baahon mein hoti hai! 🔭",
+      "Tere dil ki awaz sunna mere liye sabse meetha sangeet hai! 🎧",
+      "Yeh jhappi kisi bhi bimari ka instant paracetamol hai baby! 💊",
+      "Aankhein band kar aur socho main tere samne hoon aur bahein khuli hain! 🫂",
+      "Tu mere seene se lage aur main tere maathe pe haath pheru... sukoon! 🌿",
+      "Tere bina yeh bahein khali khali lagti hain Shubhi! 🍂",
+      "Aaja, saari negativity ko is jhappi mein crush kar dete hain! 💥",
+      "Tu meri morning sunlight hai, aur tera hug mera pehla cup chai! ☕",
+      "Duniya mein laakhon log honge par mera shoulder sirf tera hai! 🛋️",
+      "Ek aisi jhappi jisme tu puri tarah surrender kar de apne saare gusse ko! 🏳️",
+      "Tere hath mere gale mein aur meri bahein tere kamar pe... forever lock! 🔐",
+      "Tu meri life ka best gift hai, aur hug mera thank you! 🎁",
+      "Gale lag ke sab theek karne ka hunar sirf tere paas hai Shubhi! 🪄",
+      "Yeh aakhri quote nahi, har din milne wali infinite jhappiyon ki shuruat hai! 🫂❤️"
+    ];
+
+    let hugPhotoIdx = 0;
+    let kissPhotoIdx = 0;
 
     function nextMoments(type) {
       const img = document.getElementById('activeGif');
       const caption = document.getElementById('activeCaption');
       
       if (type === 'hug') {
-        hugIdx = (hugIdx + 1) % hugMoments.length;
-        img.src = hugMoments[hugIdx].url;
-        caption.innerText = hugMoments[hugIdx].caption;
+        hugPhotoIdx = (hugPhotoIdx + 1) % hugPhotos.length;
+        img.src = hugPhotos[hugPhotoIdx];
+        const randomHug = hugQuotes[Math.floor(Math.random() * hugQuotes.length)];
+        caption.innerText = `"${randomHug}"`;
       } else {
-        kissIdx = (kissIdx + 1) % kissMoments.length;
-        img.src = kissMoments[kissIdx].url;
-        caption.innerText = kissMoments[kissIdx].caption;
+        kissPhotoIdx = (kissPhotoIdx + 1) % kissPhotos.length;
+        img.src = kissPhotos[kissPhotoIdx];
+        const randomKiss = kissQuotes[Math.floor(Math.random() * kissQuotes.length)];
+        caption.innerText = `"${randomKiss}"`;
       }
 
-      confetti({ particleCount: 30, spread: 55, origin: { y: 0.6 } });
+      confetti({ particleCount: 35, spread: 60, origin: { y: 0.6 } });
     }
 
     const audio = document.getElementById('bgTrack');
@@ -466,5 +667,3 @@
   </script>
 </body>
 </html>
-
-
