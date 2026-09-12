@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever My Love • Hugs & Kisses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d97782;
+            --primary-dark: #b5505c;
+            --bg-rose: #fff7f8;
+            --card-bg: #ffffff;
+            --text-main: #2e2627;
+            --text-muted: #786567;
+            --shadow: 0 12px 30px rgba(217, 119, 130, 0.12);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-rose);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating background elements */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .float-item {
+            position: absolute;
+            animation: floatUp 10s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0.7) rotate(0deg);
+                opacity: 0;
+            }
+            20% { opacity: 0.7; }
+            80% { opacity: 0.7; }
+            100% {
+                transform: translateY(-10vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Music Floating Controller */
+        .music-bar {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(181, 80, 92, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 999;
+            border: 1px solid rgba(217, 119, 130, 0.3);
+        }
+
+        .music-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .music-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.08);
+        }
+
+        .music-text {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* Header & Hero */
+        header {
+            text-align: center;
+            padding: 4.5rem 1rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            background: rgba(217, 119, 130, 0.15);
+            color: var(--primary-dark);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        h1 span {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Interactive Counter Section */
+        .interactive-box {
+            background: var(--card-bg);
+            max-width: 550px;
+            margin: 0 auto 3rem;
+            padding: 1.8rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(217, 119, 130, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .action-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+
+        .btn-action {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.6rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(181, 80, 92, 0.35);
+        }
+
+        /* Content Sections */
+        .section-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--text-main);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* GIF Grid */
+        .gif-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gif-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(217, 119, 130, 0.15);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gif-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(217, 119, 130, 0.22);
+        }
+
+        .gif-img-container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #ffeef0;
+        }
+
+        .gif-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gif-card:hover .gif-img-container img {
+            transform: scale(1.05);
+        }
+
+        .gif-info {
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .gif-info h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .gif-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Video Section */
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(217, 119, 130, 0.15);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-desc {
+            padding: 1rem 0.5rem 0.5rem;
+            text-align: center;
+        }
+
+        .video-desc h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .video-desc p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3.5rem 1rem 6rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(217, 119, 130, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-bg" id="floatingBg"></div>
+
+    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3"></audio>
+    
+    <div class="music-bar">
+        <button class="music-btn" id="musicToggle" onclick="toggleMusic()" aria-label="Play or Pause Music">▶</button>
+        <div class="music-text" id="musicStatus">Play Romantic Song 🎵</div>
+    </div>
+
+    <header>
+        <div class="badge">Made Just For You</div>
+        <h1>Wrapped in <span>Love, Hugs & Kisses</span></h1>
+        <p class="subtitle">Even if miles or screens separate us, every beat of my heart belongs completely to you. Here are unlimited hugs, forehead kisses, and warmth.</p>
+    </header>
+
+    <div class="interactive-box">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--primary-dark);">Send Warmth Right Now</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Click to shower her with instant affection:</p>
+        <div class="action-btns">
+            <button class="btn-action" onclick="addHug()">🤗 Send Warm Hug (<span id="hugCount">0</span>)</button>
+            <button class="btn-action" onclick="addKiss()">💋 Send Soft Kiss (<span id="kissCount">0</span>)</button>
+        </div>
+    </div>
+
+    <section class="section-wrap">
+        <div class="section-title">
+            <h2>Hugs, Kisses & Tender Moments</h2>
+            <p>Because you deserve all the affection in the world, every single second.</p>
+        </div>
+
+        <div class="gif-grid">
+            <div class="gif-card">
+                <div class="gif-img-container">
+                    <img src="https://media.giphy.com/media/l2QDM9Jnim1YV5ujC/giphy.gif" alt="Warm Cozy Hug">
+                </div>
+                <div class="gif-info">
+                    <h4>The "Never Let Go" Hug</h4>
+                    <p>Where all your worries fade into safe arms.</p>
+                </div>
+            </div>
+
+            <div class="gif-card">
+                <div class="gif-img-container">
+                    <img src="https://media.giphy.com/media/G3va31oEEnIkM/giphy.gif" alt="Sweet Forehead Kiss">
+                </div>
+                <div class="gif-info">
+                    <h4>Gentle Forehead Kiss</h4>
+                    <p>A quiet promise of respect, honor, and care.</p>
+                </div>
+            </div>
+
+            <div class="gif-card">
+                <div class="gif-img-container">
+                    <img src="https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif" alt="Cuddle Hug">
+                </div>
+                <div class="gif-info">
+                    <h4>Cozy Little Cuddles</h4>
+                    <p>My favorite place in the entire world.</p>
+                </div>
+            </div>
+
+            <div class="gif-card">
+                <div class="gif-img-container">
+                    <img src="https://media.giphy.com/media/nyGFcsP0kAobm/giphy.gif" alt="Sweet Kiss">
+                </div>
+                <div class="gif-info">
+                    <h4>A Sweet Kiss</h4>
+                    <p>To remind you how deeply and truly you are cherished.</p>
+                </div>
+            </div>
+
+            <div class="gif-card">
+                <div class="gif-img-container">
+                    <img src="https://media.giphy.com/media/xT39CXg70nNS0MFNac/giphy.gif" alt="Tight Embrace">
+                </div>
+                <div class="gif-info">
+                    <h4>Tight & Comforting</h4>
+                    <p>Recharging your soul whenever you feel tired.</p>
+                </div>
+            </div>
+
+            <div class="gif-card">
+                <div class="gif-img-container">
+                    <img src="https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif" alt="Loving Glance and Kiss">
+                </div>
+                <div class="gif-info">
+                    <h4>Endless Adoration</h4>
+                    <p>Always watching you with pride and boundless love.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-wrap">
+        <div class="section-title">
+            <h2>Songs & Melodies for You</h2>
+            <p>Press play, sit back, and feel the love woven into these tunes.</p>
+        </div>
+
+        <div class="video-container">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?controls=1" title="Romantic Lofi Vibes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <h4>Peaceful Lofi Melodies</h4>
+                    <p>Soft tunes to relax, smile, and feel loved.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/4xDzrJKXOOY?controls=1" title="Synth & Chill Melodies" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-desc">
+                    <h4>Heartfelt Romance Beats</h4>
+                    <p>A soundtrack to accompany your thoughts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created solely to put a bright smile on your face • You are my heart and home ❤️</p>
+    </footer>
+
+    <script>
+        // Background Music Control
+        const audio = document.getElementById('bgMusic');
+        const toggleBtn = document.getElementById('musicToggle');
+        const musicStatus = document.getElementById('musicStatus');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                toggleBtn.innerText = '▶';
+                musicStatus.innerText = 'Play Romantic Song 🎵';
+                isPlaying = false;
+            } else {
+                audio.play().then(() => {
+                    toggleBtn.innerText = '❚❚';
+                    musicStatus.innerText = 'Playing Soft Romance ✨';
+                    isPlaying = true;
+                }).catch(err => {
+                    console.log('Audio playback permission required:', err);
+                });
+            }
+        }
+
+        // Virtual Hug & Kiss Counters
+        let hugs = 0;
+        let kisses = 0;
+
+        function addHug() {
+            hugs++;
+            document.getElementById('hugCount').innerText = hugs;
+            spawnBurst('🤗');
+        }
+
+        function addKiss() {
+            kisses++;
+            document.getElementById('kissCount').innerText = kisses;
+            spawnBurst('💋');
+        }
+
+        // Burst Animation on Button Click
+        function spawnBurst(char) {
+            for (let i = 0; i < 6; i++) {
+                const particle = document.createElement('div');
+                particle.innerText = char;
+                particle.style.position = 'fixed';
+                particle.style.left = (window.innerWidth / 2 + (Math.random() * 200 - 100)) + 'px';
+                particle.style.top = (window.innerHeight / 2 + (Math.random() * 100 - 50)) + 'px';
+                particle.style.fontSize = '2rem';
+                particle.style.zIndex = '1000';
+                particle.style.transition = 'all 1s ease-out';
+                particle.style.pointerEvents = 'none';
+                document.body.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.style.transform = `translate(${Math.random() * 300 - 150}px, -${Math.random() * 200 + 100}px) scale(1.6)`;
+                    particle.style.opacity = '0';
+                }, 20);
+
+                setTimeout(() => particle.remove(), 1050);
+            }
+        }
+
+        // Background floating icons
+        const bgContainer = document.getElementById('floatingBg');
+        const icons = ['🌸', '💖', '💋', '✨', '🌹', '🤍'];
+
+        function createFloatItem() {
+            const el = document.createElement('div');
+            el.classList.add('float-item');
+            el.innerText = icons[Math.floor(Math.random() * icons.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (Math.random() * 6 + 8) + 's';
+            el.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
+
+            bgContainer.appendChild(el);
+
+            setTimeout(() => {
+                el.remove();
+            }, 14000);
+        }
+
+        setInterval(createFloatItem, 750);
+    </script>
+</body>
+</html>
