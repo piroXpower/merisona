@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bantai Ki Bandi • Shubhi Meri Jaan ❤️🔥</title>
+  <title>Laksh Ki Janeman • Shubhi Meri Jaan ❤️🔥</title>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -28,7 +28,6 @@
       position: relative;
     }
 
-    /* Ambient Flying Hearts */
     .bg-heart {
       position: fixed;
       pointer-events: none;
@@ -49,7 +48,6 @@
       z-index: 5;
     }
 
-    /* Profile / Header Card */
     .hero-card {
       background: rgba(20, 5, 15, 0.78);
       backdrop-filter: blur(14px);
@@ -89,7 +87,6 @@
       margin-bottom: 14px;
     }
 
-    /* Song Bar */
     .music-bar {
       background: rgba(255, 255, 255, 0.1);
       border: 1px dashed #ff2a6d;
@@ -125,7 +122,6 @@
       color: #fff;
     }
 
-    /* Couple GIF Player Box */
     .gif-theater {
       background: rgba(15, 5, 12, 0.85);
       border: 2px solid rgba(255, 42, 109, 0.7);
@@ -144,6 +140,7 @@
       margin-bottom: 10px;
       border: 2px solid #ff2a6d;
       background: #000;
+      position: relative;
     }
 
     .gif-frame img {
@@ -188,7 +185,6 @@
       transform: scale(0.95);
     }
 
-    /* Chapri Dialogue Bento Cards */
     .dialogue-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -227,7 +223,6 @@
       line-height: 1.4;
     }
 
-    /* Big Romantic Letter Button */
     .love-btn {
       width: 100%;
       background: linear-gradient(90deg, #ff0844, #ff2a6d);
@@ -241,7 +236,6 @@
       box-shadow: 0 8px 25px rgba(255, 8, 68, 0.5);
     }
 
-    /* Popups */
     .modal-screen {
       display: none;
       position: fixed;
@@ -307,10 +301,10 @@
 
     <div class="gif-theater">
       <div class="gif-frame">
-        <img id="activeGif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2RraGppN3pvcXo0cTNkZGx6b3RhcnY3MHUzbWF5aWFqbm1jdm1nMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vz58J8shFW6BvqnYTm/giphy.gif" alt="Couple Hug" />
+        <img id="activeGif" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&auto=format&fit=crop&q=80" alt="Couple Hug" />
       </div>
       <div class="caption-box" id="activeCaption">
-        "Chal idhar aa, ek tight wali warm jhappi le chup chap! 🫂❤️"
+        "Chal idhar aa, ekdum tightly pakad ke rakhunga tujhe! 🫂❤️"
       </div>
 
       <div class="gif-controls">
@@ -363,7 +357,6 @@
   </div>
 
   <script>
-    // Floating Background Particles
     const icons = ['❤️', '🔥', '💋', '🫂', '✨', '🌹'];
     function makeHeart() {
       const h = document.createElement('div');
@@ -376,25 +369,24 @@
     }
     setInterval(makeHeart, 450);
 
-    // Couple GIFs (Real human emotion GIFs)
-    const hugGifs = [
+    const hugMoments = [
       {
-        url: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGhnMzduenhyMGF5dzlyazM1YjlvMjhzdjdyZnZpNGc1aDNjOWdtYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif",
+        url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&auto=format&fit=crop&q=80",
         caption: "Chal idhar aa, ekdum tightly pakad ke rakhunga tujhe! 🫂❤️"
       },
       {
-        url: "https://media.giphy.com/media/lrr9rHuoJOE0w/giphy.gif",
+        url: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&auto=format&fit=crop&q=80",
         caption: "Saari thakan gayab ho jati hai jab tu gale lagti hai Shubhi! 🥺"
       }
     ];
 
-    const kissGifs = [
+    const kissMoments = [
       {
-        url: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpib2YxaHFkYXJkMXp4azF6am00MmJhcGkxc2V0NXp3dTNubHk2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/G3va3MQVM8jhFA9XA3/giphy.gif",
+        url: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&auto=format&fit=crop&q=80",
         caption: "Tere maathe pe ek pyari si kissi meri pyaari Shubhi ke liye! 💋✨"
       },
       {
-        url: "https://media.giphy.com/media/R6gVNROjZaBlYWo4OW/giphy.gif",
+        url: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=800&auto=format&fit=crop&q=80",
         caption: "Pout mat bana, chup-chap ek sweet si chummi le le! 😘"
       }
     ];
@@ -407,19 +399,18 @@
       const caption = document.getElementById('activeCaption');
       
       if (type === 'hug') {
-        hugIdx = (hugIdx + 1) % hugGifs.length;
-        img.src = hugGifs[hugIdx].url;
-        caption.innerText = hugGifs[hugIdx].caption;
+        hugIdx = (hugIdx + 1) % hugMoments.length;
+        img.src = hugMoments[hugIdx].url;
+        caption.innerText = hugMoments[hugIdx].caption;
       } else {
-        kissIdx = (kissIdx + 1) % kissGifs.length;
-        img.src = kissGifs[kissIdx].url;
-        caption.innerText = kissGifs[kissIdx].caption;
+        kissIdx = (kissIdx + 1) % kissMoments.length;
+        img.src = kissMoments[kissIdx].url;
+        caption.innerText = kissMoments[kissIdx].caption;
       }
 
-      confetti({ particleCount: 25, spread: 50 });
+      confetti({ particleCount: 30, spread: 55, origin: { y: 0.6 } });
     }
 
-    // Audio Play/Pause
     const audio = document.getElementById('bgTrack');
     const playBtn = document.getElementById('playBtn');
     const musicLabel = document.getElementById('musicLabel');
@@ -432,7 +423,7 @@
           playBtn.innerText = '❚❚';
           musicLabel.innerText = 'Dildara chal raha hai full volume pe 🔥';
         }).catch(err => {
-          console.log("Audio waiting for user gesture:", err);
+          console.log("Audio waiting for user interaction:", err);
         });
       } else {
         audio.pause();
@@ -442,7 +433,6 @@
       }
     }
 
-    // Modal Control
     function showDialog(title, text) {
       document.getElementById('popupTitle').innerText = title;
       document.getElementById('popupContent').innerHTML = text;
@@ -475,5 +465,6 @@
     }
   </script>
 </body>
-            </html>
+</html>
+
 
