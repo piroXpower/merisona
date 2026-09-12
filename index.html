@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forever My Love • Hugs & Kisses</title>
+    <title>To My Beautiful Queen • Forever In Love</title>
+    <!-- Elegant Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Alex+Brush&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #d97782;
-            --primary-dark: #b5505c;
-            --bg-rose: #fff7f8;
+            --primary: #c85a69;
+            --primary-dark: #9e3644;
+            --rose-light: #fff3f5;
+            --rose-mid: #fce4e8;
             --card-bg: #ffffff;
-            --text-main: #2e2627;
-            --text-muted: #786567;
-            --shadow: 0 12px 30px rgba(217, 119, 130, 0.12);
-            --transition: all 0.3s ease;
+            --text-dark: #241c1d;
+            --text-muted: #6b5c5e;
+            --gold-accent: #d4a373;
+            --shadow-soft: 0 12px 35px rgba(200, 90, 105, 0.12);
+            --shadow-hover: 0 20px 45px rgba(200, 90, 105, 0.22);
+            --radius-card: 22px;
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -27,15 +32,15 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-rose);
-            color: var(--text-main);
+            background: linear-gradient(180deg, #fff7f8 0%, #fff0f3 100%);
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Floating background elements */
-        .floating-bg {
+        /* Ambient Floating Heart Sprinkles */
+        .ambient-canvas {
             position: fixed;
             top: 0;
             left: 0;
@@ -46,288 +51,360 @@
             overflow: hidden;
         }
 
-        .float-item {
+        .ambient-symbol {
             position: absolute;
-            animation: floatUp 10s linear infinite;
+            animation: floatSlow 12s linear infinite;
             opacity: 0;
+            user-select: none;
         }
 
-        @keyframes floatUp {
+        @keyframes floatSlow {
             0% {
-                transform: translateY(105vh) scale(0.7) rotate(0deg);
+                transform: translateY(105vh) scale(0.6) rotate(0deg);
                 opacity: 0;
             }
-            20% { opacity: 0.7; }
-            80% { opacity: 0.7; }
+            15% { opacity: 0.65; }
+            85% { opacity: 0.65; }
             100% {
-                transform: translateY(-10vh) scale(1.2) rotate(360deg);
+                transform: translateY(-10vh) scale(1.15) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        /* Music Floating Controller */
-        .music-bar {
+        /* Floating Audio Controller */
+        .audio-player-pill {
             position: fixed;
             bottom: 25px;
             right: 25px;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
+            backdrop-filter: blur(12px);
+            padding: 10px 22px 10px 14px;
             border-radius: 50px;
-            box-shadow: 0 8px 25px rgba(181, 80, 92, 0.25);
+            box-shadow: 0 10px 30px rgba(158, 54, 68, 0.25);
             display: flex;
             align-items: center;
             gap: 12px;
             z-index: 999;
-            border: 1px solid rgba(217, 119, 130, 0.3);
+            border: 1px solid rgba(200, 90, 105, 0.3);
         }
 
-        .music-btn {
-            background: var(--primary);
+        .play-disc-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
-        }
-
-        .music-btn:hover {
-            background: var(--primary-dark);
-            transform: scale(1.08);
-        }
-
-        .music-text {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-main);
-        }
-
-        /* Header & Hero */
-        header {
-            text-align: center;
-            padding: 4.5rem 1rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .badge {
-            background: rgba(217, 119, 130, 0.15);
-            color: var(--primary-dark);
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-            font-weight: 500;
-            line-height: 1.15;
-            margin-bottom: 1rem;
-        }
-
-        h1 span {
-            color: var(--primary-dark);
-            font-style: italic;
-        }
-
-        .subtitle {
             font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(200, 90, 105, 0.3);
         }
 
-        /* Interactive Counter Section */
-        .interactive-box {
-            background: var(--card-bg);
-            max-width: 550px;
-            margin: 0 auto 3rem;
-            padding: 1.8rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(217, 119, 130, 0.2);
+        .play-disc-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .music-title-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .music-track-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .music-track-sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        /* Hero Video Showcase */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 5rem 1.5rem 3rem;
+            z-index: 1;
+        }
+
+        .sub-tag {
+            background: rgba(200, 90, 105, 0.12);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 600;
+            line-height: 1.15;
+            max-width: 900px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 400;
+        }
+
+        .hero-script {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Real Video Cards & Grid */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 5rem;
             position: relative;
             z-index: 1;
         }
 
-        .action-btns {
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.7rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .real-video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.2rem;
+        }
+
+        .video-card-real {
+            background: var(--card-bg);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(200, 90, 105, 0.15);
+            transition: var(--transition);
             display: flex;
+            flex-direction: column;
+        }
+
+        .video-card-real:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .video-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.95) contrast(1.05);
+            transition: transform 0.8s ease;
+        }
+
+        .video-card-real:hover .video-box video {
+            transform: scale(1.04);
+        }
+
+        .video-tag-pill {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-meta {
+            padding: 1.8rem 1.6rem;
+            text-align: center;
+        }
+
+        .video-meta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.55rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-meta p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Interactive Shower & Heart Tap */
+        .interactive-dock {
+            background: white;
+            border-radius: 26px;
+            padding: 2.5rem 2rem;
+            max-width: 650px;
+            margin: 0 auto 5rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(200, 90, 105, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .dock-buttons {
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .btn-action {
+        .btn-love {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             border: none;
-            padding: 0.8rem 1.6rem;
-            font-size: 0.95rem;
+            padding: 0.9rem 1.8rem;
+            font-size: 1rem;
             font-weight: 500;
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
+            box-shadow: 0 8px 22px rgba(200, 90, 105, 0.35);
             transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .btn-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(181, 80, 92, 0.35);
+        .btn-love:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(158, 54, 68, 0.45);
         }
 
-        /* Content Sections */
-        .section-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .section-title h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--text-main);
-        }
-
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* GIF Grid */
-        .gif-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gif-card {
-            background: var(--card-bg);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(217, 119, 130, 0.15);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gif-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 35px rgba(217, 119, 130, 0.22);
-        }
-
-        .gif-img-container {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            background: #ffeef0;
-        }
-
-        .gif-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .gif-card:hover .gif-img-container img {
-            transform: scale(1.05);
-        }
-
-        .gif-info {
-            padding: 1.2rem;
-            text-align: center;
-        }
-
-        .gif-info h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.3rem;
-        }
-
-        .gif-info p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Video Section */
-        .video-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .video-card {
-            background: var(--card-bg);
-            padding: 1rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(217, 119, 130, 0.15);
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
+        .counter-badge {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 2px 8px;
             border-radius: 12px;
-            overflow: hidden;
+            font-size: 0.85rem;
         }
 
-        .video-wrapper iframe {
-            position: absolute;
+        /* Romantic Letter Modal */
+        .modal-overlay {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            background: rgba(36, 28, 29, 0.65);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
         }
 
-        .video-desc {
-            padding: 1rem 0.5rem 0.5rem;
+        .letter-container {
+            background: #fffcfc;
+            max-width: 580px;
+            width: 100%;
+            border-radius: 24px;
+            padding: 3.5rem 2.8rem;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(200, 90, 105, 0.2);
+            animation: zoomLetter 0.4s ease-out;
+        }
+
+        @keyframes zoomLetter {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .close-letter-btn {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            border: none;
+            background: transparent;
+            line-height: 1;
+        }
+
+        .letter-container h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.2rem;
             text-align: center;
         }
 
-        .video-desc h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.35rem;
-            margin-bottom: 0.2rem;
+        .letter-body {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.85;
+            margin-bottom: 2rem;
         }
 
-        .video-desc p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .letter-sig {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.4rem;
+            color: var(--primary);
+            text-align: right;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 3.5rem 1rem 6rem;
+            padding: 4rem 1rem 6rem;
+            border-top: 1px solid rgba(200, 90, 105, 0.15);
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid rgba(217, 119, 130, 0.15);
             position: relative;
             z-index: 1;
         }
@@ -335,215 +412,159 @@
 </head>
 <body>
 
-    <div class="floating-bg" id="floatingBg"></div>
+    <!-- Ambient Floating Particles Canvas -->
+    <div class="ambient-canvas" id="ambientCanvas"></div>
 
-    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3"></audio>
-    
-    <div class="music-bar">
-        <button class="music-btn" id="musicToggle" onclick="toggleMusic()" aria-label="Play or Pause Music">▶</button>
-        <div class="music-text" id="musicStatus">Play Romantic Song 🎵</div>
-    </div>
+    <!-- Background Music Audio Stream (Soft Romantic Piano Loop) -->
+    <audio id="bgSong" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3"></audio>
 
-    <header>
-        <div class="badge">Made Just For You</div>
-        <h1>Wrapped in <span>Love, Hugs & Kisses</span></h1>
-        <p class="subtitle">Even if miles or screens separate us, every beat of my heart belongs completely to you. Here are unlimited hugs, forehead kisses, and warmth.</p>
-    </header>
-
-    <div class="interactive-box">
-        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--primary-dark);">Send Warmth Right Now</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Click to shower her with instant affection:</p>
-        <div class="action-btns">
-            <button class="btn-action" onclick="addHug()">🤗 Send Warm Hug (<span id="hugCount">0</span>)</button>
-            <button class="btn-action" onclick="addKiss()">💋 Send Soft Kiss (<span id="kissCount">0</span>)</button>
+    <!-- Floating Audio Pill -->
+    <div class="audio-player-pill">
+        <button class="play-disc-btn" id="playBtn" onclick="toggleAudio()" aria-label="Toggle Romantic Music">▶</button>
+        <div class="music-title-wrap">
+            <span class="music-track-name" id="trackName">Touch To Play Song</span>
+            <span class="music-track-sub">Romantic Melody for My Queen 🎵</span>
         </div>
     </div>
 
-    <section class="section-wrap">
-        <div class="section-title">
-            <h2>Hugs, Kisses & Tender Moments</h2>
-            <p>Because you deserve all the affection in the world, every single second.</p>
-        </div>
-
-        <div class="gif-grid">
-            <div class="gif-card">
-                <div class="gif-img-container">
-                    <img src="https://media.giphy.com/media/l2QDM9Jnim1YV5ujC/giphy.gif" alt="Warm Cozy Hug">
-                </div>
-                <div class="gif-info">
-                    <h4>The "Never Let Go" Hug</h4>
-                    <p>Where all your worries fade into safe arms.</p>
-                </div>
-            </div>
-
-            <div class="gif-card">
-                <div class="gif-img-container">
-                    <img src="https://media.giphy.com/media/G3va31oEEnIkM/giphy.gif" alt="Sweet Forehead Kiss">
-                </div>
-                <div class="gif-info">
-                    <h4>Gentle Forehead Kiss</h4>
-                    <p>A quiet promise of respect, honor, and care.</p>
-                </div>
-            </div>
-
-            <div class="gif-card">
-                <div class="gif-img-container">
-                    <img src="https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif" alt="Cuddle Hug">
-                </div>
-                <div class="gif-info">
-                    <h4>Cozy Little Cuddles</h4>
-                    <p>My favorite place in the entire world.</p>
-                </div>
-            </div>
-
-            <div class="gif-card">
-                <div class="gif-img-container">
-                    <img src="https://media.giphy.com/media/nyGFcsP0kAobm/giphy.gif" alt="Sweet Kiss">
-                </div>
-                <div class="gif-info">
-                    <h4>A Sweet Kiss</h4>
-                    <p>To remind you how deeply and truly you are cherished.</p>
-                </div>
-            </div>
-
-            <div class="gif-card">
-                <div class="gif-img-container">
-                    <img src="https://media.giphy.com/media/xT39CXg70nNS0MFNac/giphy.gif" alt="Tight Embrace">
-                </div>
-                <div class="gif-info">
-                    <h4>Tight & Comforting</h4>
-                    <p>Recharging your soul whenever you feel tired.</p>
-                </div>
-            </div>
-
-            <div class="gif-card">
-                <div class="gif-img-container">
-                    <img src="https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif" alt="Loving Glance and Kiss">
-                </div>
-                <div class="gif-info">
-                    <h4>Endless Adoration</h4>
-                    <p>Always watching you with pride and boundless love.</p>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="sub-tag">Designed Exclusively For You</div>
+        <div class="hero-script">To My Irreplaceable Partner</div>
+        <h1>Every Heartbeat, <span>Every Breath, Always You</span></h1>
+        <p>No distance, no routine, and no ordinary days could ever diminish how beautiful, special, and loved you are to me. Here is my heart, wrapped in hugs and kisses.</p>
+        <div>
+            <button class="btn-love" onclick="openLetterModal()">Open My Personal Love Letter 💌</button>
         </div>
     </section>
 
-    <section class="section-wrap">
-        <div class="section-title">
-            <h2>Songs & Melodies for You</h2>
-            <p>Press play, sit back, and feel the love woven into these tunes.</p>
+    <!-- Interactive Warmth Dock -->
+    <div class="interactive-dock">
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--primary-dark);">Unlimited Real Affection</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 4px;">Tap whenever you need reassurance, a tight embrace, or sweet kisses:</p>
+        <div class="dock-buttons">
+            <button class="btn-love" onclick="deliverHug()">
+                🤗 Real Tight Hug <span class="counter-badge" id="hugTally">0</span>
+            </button>
+            <button class="btn-love" onclick="deliverKiss()">
+                💋 Real Sweet Kiss <span class="counter-badge" id="kissTally">0</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Real Video Moments (Auto-Playing, High Quality, Clean & Romantic) -->
+    <main class="container">
+        <div class="section-header">
+            <h2>Real Hugs & Pure Devotion</h2>
+            <p>High-definition real couples sharing the exact tenderness I hold in my heart for you.</p>
         </div>
 
-        <div class="video-container">
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?controls=1" title="Romantic Lofi Vibes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="real-video-grid">
+            
+            <!-- Real Hug 1: Warm Golden Hour Embrace -->
+            <div class="video-card-real">
+                <div class="video-box">
+                    <span class="video-tag-pill">✨ The Safe Haven</span>
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=700&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-couple-hugging-each-other-at-sunset-41484-large.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <div class="video-desc">
-                    <h4>Peaceful Lofi Melodies</h4>
-                    <p>Soft tunes to relax, smile, and feel loved.</p>
+                <div class="video-meta">
+                    <h3>The Sunset Embrace</h3>
+                    <p>When the noise of the entire world fades away, and all that matters is holding you tight in safe arms.</p>
                 </div>
             </div>
 
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube-nocookie.com/embed/4xDzrJKXOOY?controls=1" title="Synth & Chill Melodies" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- Real Kiss 1: Forehead / Gentle Kiss -->
+            <div class="video-card-real">
+                <div class="video-box">
+                    <span class="video-tag-pill">🤍 Pure Respect & Affection</span>
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-young-couple-walking-along-the-beach-at-sunset-41485-large.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <div class="video-desc">
-                    <h4>Heartfelt Romance Beats</h4>
-                    <p>A soundtrack to accompany your thoughts.</p>
+                <div class="video-meta">
+                    <h3>Strolls By Your Side</h3>
+                    <p>Walking through life with our hands entwined, whispering how much you mean to me under the open sky.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
+            <!-- Real Hug 2: Cozy Intimate Cuddle -->
+            <div class="video-card-real">
+                <div class="video-box">
+                    <span class="video-tag-pill">🌸 Sweetest Kiss</span>
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=700&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-romantic-couple-kissing-and-hugging-in-a-forest-41486-large.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-meta">
+                    <h3>The Deepest Passion</h3>
+                    <p>Every kiss is a silent promise: you are my past, my present, and my brightest tomorrow.</p>
+                </div>
+            </div>
+
+            <!-- Real Video 4: Sunset Dance & Connection -->
+            <div class="video-card-real">
+                <div class="video-box">
+                    <span class="video-tag-pill">🌹 Forever Connected</span>
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=700&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-happy-couple-enjoying-time-together-in-nature-41488-large.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-meta">
+                    <h3>Laughter & Soft Hugs</h3>
+                    <p>Because your happiness and your warm smile are the finest sights this universe has to offer.</p>
+                </div>
+            </div>
+
+            <!-- YouTube Classic Romantic Love Music Video Embed -->
+            <div class="video-card-real" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto; width: 100%;">
+                <div class="video-box" style="height: 420px;">
+                    <iframe 
+                        style="width: 100%; height: 100%; border: none;" 
+                        src="https://www.youtube-nocookie.com/embed/rtOvBOTyX00?controls=1&rel=0" 
+                        title="Perfect Romance Song" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-meta">
+                    <h3>"Perfect" — A Song Dedicated to You</h3>
+                    <p>Listen to these lyrics, close your eyes, and remember that every word reflects how I look at you every day.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Romantic Letter Popup Modal -->
+    <div class="modal-overlay" id="letterModal">
+        <div class="letter-container">
+            <button class="close-letter-btn" onclick="closeLetterModal()">&times;</button>
+            <h3>To The Love Of My Life</h3>
+            <div class="letter-body">
+                <p>My dearest partner,</p>
+                <br>
+                <p>I built this space simply to remind you of how extraordinary you are. Sometimes words fall short, but whenever you feel tired, distant, or down, know that my arms are always open to hold you, protect you, and lift you up.</p>
+                <br>
+                <p>You make every single day brighter with your grace, kindness, and beauty. You deserve all the tender hugs, passionate kisses, and unconditional devotion in the world.</p>
+            </div>
+            <div class="letter-sig">Forever Yours, with all my love.</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <p>Created solely to put a bright smile on your face • You are my heart and home ❤️</p>
+        <p>Crafted solely for my life partner • You are everything to me ❤️</p>
     </footer>
 
+    <!-- Interactive Logic -->
     <script>
-        // Background Music Control
-        const audio = document.getElementById('bgMusic');
-        const toggleBtn = document.getElementById('musicToggle');
-        const musicStatus = document.getElementById('musicStatus');
-        let isPlaying = false;
+        // Floating Background Particles (Hearts, Lips, Petals)
+        const canvas = document.getElementById('ambientCanvas');
+        const particles = ['❤️', '💋', '🌸', '✨', '🌹', '💖'];
 
-        function toggleMusic() {
-            if (isPlaying) {
-                audio.pause();
-                toggleBtn.innerText = '▶';
-                musicStatus.innerText = 'Play Romantic Song 🎵';
-                isPlaying = false;
-            } else {
-                audio.play().then(() => {
-                    toggleBtn.innerText = '❚❚';
-                    musicStatus.innerText = 'Playing Soft Romance ✨';
-                    isPlaying = true;
-                }).catch(err => {
-                    console.log('Audio playback permission required:', err);
-                });
-            }
-        }
-
-        // Virtual Hug & Kiss Counters
-        let hugs = 0;
-        let kisses = 0;
-
-        function addHug() {
-            hugs++;
-            document.getElementById('hugCount').innerText = hugs;
-            spawnBurst('🤗');
-        }
-
-        function addKiss() {
-            kisses++;
-            document.getElementById('kissCount').innerText = kisses;
-            spawnBurst('💋');
-        }
-
-        // Burst Animation on Button Click
-        function spawnBurst(char) {
-            for (let i = 0; i < 6; i++) {
-                const particle = document.createElement('div');
-                particle.innerText = char;
-                particle.style.position = 'fixed';
-                particle.style.left = (window.innerWidth / 2 + (Math.random() * 200 - 100)) + 'px';
-                particle.style.top = (window.innerHeight / 2 + (Math.random() * 100 - 50)) + 'px';
-                particle.style.fontSize = '2rem';
-                particle.style.zIndex = '1000';
-                particle.style.transition = 'all 1s ease-out';
-                particle.style.pointerEvents = 'none';
-                document.body.appendChild(particle);
-
-                setTimeout(() => {
-                    particle.style.transform = `translate(${Math.random() * 300 - 150}px, -${Math.random() * 200 + 100}px) scale(1.6)`;
-                    particle.style.opacity = '0';
-                }, 20);
-
-                setTimeout(() => particle.remove(), 1050);
-            }
-        }
-
-        // Background floating icons
-        const bgContainer = document.getElementById('floatingBg');
-        const icons = ['🌸', '💖', '💋', '✨', '🌹', '🤍'];
-
-        function createFloatItem() {
-            const el = document.createElement('div');
-            el.classList.add('float-item');
-            el.innerText = icons[Math.floor(Math.random() * icons.length)];
-            el.style.left = Math.random() * 100 + 'vw';
-            el.style.animationDuration = (Math.random() * 6 + 8) + 's';
-            el.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
-
-            bgContainer.appendChild(el);
-
-            setTimeout(() => {
-                el.remove();
-            }, 14000);
-        }
-
-        setInterval(createFloatItem, 750);
-    </script>
-</body>
-</html>
+        function spawnParticle() {
+            const p = document.createElement('div');
+            p.classList.add('ambient-symbol');
+            p.innerText = particles[Mat
