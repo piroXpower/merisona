@@ -1,570 +1,479 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To My Beautiful Queen • Forever In Love</title>
-    <!-- Elegant Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Alex+Brush&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #c85a69;
-            --primary-dark: #9e3644;
-            --rose-light: #fff3f5;
-            --rose-mid: #fce4e8;
-            --card-bg: #ffffff;
-            --text-dark: #241c1d;
-            --text-muted: #6b5c5e;
-            --gold-accent: #d4a373;
-            --shadow-soft: 0 12px 35px rgba(200, 90, 105, 0.12);
-            --shadow-hover: 0 20px 45px rgba(200, 90, 105, 0.22);
-            --radius-card: 22px;
-            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bantai Ki Bandi • Shubhi Meri Jaan ❤️🔥</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(180deg, #fff7f8 0%, #fff0f3 100%);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-        }
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 20%, #ff0844 0%, #ffb199 60%, #1a0814 100%);
+      font-family: 'Nunito', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 12px 60px 12px;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-        /* Ambient Floating Heart Sprinkles */
-        .ambient-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
+    /* Ambient Flying Hearts */
+    .bg-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+      animation: floatUp 6s linear infinite;
+    }
 
-        .ambient-symbol {
-            position: absolute;
-            animation: floatSlow 12s linear infinite;
-            opacity: 0;
-            user-select: none;
-        }
+    @keyframes floatUp {
+      0% { transform: translateY(105vh) scale(0.6); opacity: 0.9; }
+      100% { transform: translateY(-10vh) scale(1.3) rotate(360deg); opacity: 0; }
+    }
 
-        @keyframes floatSlow {
-            0% {
-                transform: translateY(105vh) scale(0.6) rotate(0deg);
-                opacity: 0;
-            }
-            15% { opacity: 0.65; }
-            85% { opacity: 0.65; }
-            100% {
-                transform: translateY(-10vh) scale(1.15) rotate(360deg);
-                opacity: 0;
-            }
-        }
+    .main-box {
+      width: 100%;
+      max-width: 440px;
+      position: relative;
+      z-index: 5;
+    }
 
-        /* Floating Audio Controller */
-        .audio-player-pill {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            padding: 10px 22px 10px 14px;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(158, 54, 68, 0.25);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 999;
-            border: 1px solid rgba(200, 90, 105, 0.3);
-        }
+    /* Profile / Header Card */
+    .hero-card {
+      background: rgba(20, 5, 15, 0.78);
+      backdrop-filter: blur(14px);
+      border: 2px solid #ff2a6d;
+      border-radius: 30px;
+      padding: 22px 16px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(255, 42, 109, 0.4);
+      margin-bottom: 18px;
+    }
 
-        .play-disc-btn {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(200, 90, 105, 0.3);
-        }
+    .badge-tag {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff0844, #ffb199);
+      color: #000;
+      font-weight: 900;
+      font-size: 11px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
 
-        .play-disc-btn:hover {
-            transform: scale(1.1);
-        }
+    h1 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 26px;
+      color: #05d9e8;
+      text-shadow: 0 0 10px rgba(5, 217, 232, 0.6);
+      margin-bottom: 4px;
+    }
 
-        .music-title-wrap {
-            display: flex;
-            flex-direction: column;
-        }
+    .subtitle {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #ffb199;
+      margin-bottom: 14px;
+    }
 
-        .music-track-name {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
+    /* Song Bar */
+    .music-bar {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px dashed #ff2a6d;
+      border-radius: 40px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
 
-        .music-track-sub {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-        }
+    .music-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #ff2a6d;
+      color: #fff;
+      border: none;
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-        /* Hero Video Showcase */
-        .hero {
-            position: relative;
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 5rem 1.5rem 3rem;
-            z-index: 1;
-        }
+    .music-title {
+      text-align: left;
+      flex-grow: 1;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #fff;
+    }
 
-        .sub-tag {
-            background: rgba(200, 90, 105, 0.12);
-            color: var(--primary-dark);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
+    /* Couple GIF Player Box */
+    .gif-theater {
+      background: rgba(15, 5, 12, 0.85);
+      border: 2px solid rgba(255, 42, 109, 0.7);
+      border-radius: 24px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      margin-bottom: 18px;
+    }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            font-weight: 600;
-            line-height: 1.15;
-            max-width: 900px;
-            margin-bottom: 1.2rem;
-        }
+    .gif-frame {
+      width: 100%;
+      height: 230px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      border: 2px solid #ff2a6d;
+      background: #000;
+    }
 
-        .hero h1 span {
-            font-style: italic;
-            color: var(--primary);
-            font-weight: 400;
-        }
+    .gif-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-        .hero-script {
-            font-family: 'Alex Brush', cursive;
-            font-size: 2.8rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
+    .caption-box {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      color: #ffe3eb;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 6px;
+    }
 
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 2.5rem;
-        }
+    .gif-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
 
-        /* Real Video Cards & Grid */
-        .container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 5rem;
-            position: relative;
-            z-index: 1;
-        }
+    .glow-btn {
+      background: linear-gradient(135deg, #ff2a6d, #9b00e8);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      font-size: 13.5px;
+      font-weight: 900;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(255, 42, 109, 0.4);
+      transition: transform 0.2s;
+    }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+    .glow-btn:active {
+      transform: scale(0.95);
+    }
 
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.7rem;
-            margin-bottom: 0.4rem;
-        }
+    /* Chapri Dialogue Bento Cards */
+    .dialogue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
 
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
+    .card-item {
+      background: rgba(25, 10, 22, 0.85);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 14px 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.2s;
+    }
 
-        .real-video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 2.2rem;
-        }
+    .card-item:active {
+      transform: scale(0.96);
+    }
 
-        .video-card-real {
-            background: var(--card-bg);
-            border-radius: var(--radius-card);
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(200, 90, 105, 0.15);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
+    .card-item.full {
+      grid-column: span 2;
+    }
 
-        .video-card-real:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-        }
+    .card-title {
+      font-size: 13.5px;
+      font-weight: 900;
+      color: #05d9e8;
+      margin-bottom: 4px;
+    }
 
-        .video-box {
-            position: relative;
-            width: 100%;
-            height: 380px;
-            overflow: hidden;
-            background: #000;
-        }
+    .card-desc {
+      font-size: 12px;
+      color: #ffccd9;
+      line-height: 1.4;
+    }
 
-        .video-box video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.95) contrast(1.05);
-            transition: transform 0.8s ease;
-        }
+    /* Big Romantic Letter Button */
+    .love-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #ff0844, #ff2a6d);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(255, 8, 68, 0.5);
+    }
 
-        .video-card-real:hover .video-box video {
-            transform: scale(1.04);
-        }
+    /* Popups */
+    .modal-screen {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
 
-        .video-tag-pill {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(0, 0, 0, 0.45);
-            backdrop-filter: blur(8px);
-            color: white;
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+    .modal-card {
+      background: #190514;
+      border: 2px solid #ff2a6d;
+      border-radius: 26px;
+      width: 100%;
+      max-width: 400px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 22px 18px;
+      text-align: center;
+      position: relative;
+    }
 
-        .video-meta {
-            padding: 1.8rem 1.6rem;
-            text-align: center;
-        }
+    .close-icon {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 26px;
+      color: #aaa;
+      cursor: pointer;
+    }
 
-        .video-meta h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.55rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
+    .modal-text-content {
+      font-size: 14px;
+      line-height: 1.65;
+      text-align: left;
+      margin-top: 12px;
+      color: #ffe6f0;
+    }
 
-        .video-meta p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* Interactive Shower & Heart Tap */
-        .interactive-dock {
-            background: white;
-            border-radius: 26px;
-            padding: 2.5rem 2rem;
-            max-width: 650px;
-            margin: 0 auto 5rem;
-            text-align: center;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(200, 90, 105, 0.2);
-            position: relative;
-            z-index: 1;
-        }
-
-        .dock-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 1.5rem;
-        }
-
-        .btn-love {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border: none;
-            padding: 0.9rem 1.8rem;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 8px 22px rgba(200, 90, 105, 0.35);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-love:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 28px rgba(158, 54, 68, 0.45);
-        }
-
-        .counter-badge {
-            background: rgba(255, 255, 255, 0.25);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-        }
-
-        /* Romantic Letter Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(36, 28, 29, 0.65);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .letter-container {
-            background: #fffcfc;
-            max-width: 580px;
-            width: 100%;
-            border-radius: 24px;
-            padding: 3.5rem 2.8rem;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(200, 90, 105, 0.2);
-            animation: zoomLetter 0.4s ease-out;
-        }
-
-        @keyframes zoomLetter {
-            from { opacity: 0; transform: scale(0.92); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .close-letter-btn {
-            position: absolute;
-            top: 18px;
-            right: 22px;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-muted);
-            border: none;
-            background: transparent;
-            line-height: 1;
-        }
-
-        .letter-container h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 1.2rem;
-            text-align: center;
-        }
-
-        .letter-body {
-            font-size: 1.05rem;
-            color: var(--text-dark);
-            line-height: 1.85;
-            margin-bottom: 2rem;
-        }
-
-        .letter-sig {
-            font-family: 'Alex Brush', cursive;
-            font-size: 2.4rem;
-            color: var(--primary);
-            text-align: right;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 4rem 1rem 6rem;
-            border-top: 1px solid rgba(200, 90, 105, 0.15);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 1;
-        }
-    </style>
+    .modal-text-content strong {
+      color: #05d9e8;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Ambient Floating Particles Canvas -->
-    <div class="ambient-canvas" id="ambientCanvas"></div>
+  <div class="main-box">
 
-    <!-- Background Music Audio Stream (Soft Romantic Piano Loop) -->
-    <audio id="bgSong" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3"></audio>
+    <div class="hero-card">
+      <span class="badge-tag">🔥 100% ONLY FOR SHUBHI MISHRA 🔥</span>
+      <h1>TERA HERO, TERA GUNDA 😎❤️</h1>
+      <p class="subtitle">Bantai Ki Jaan, Meri Cutie-Pie Shubhi Ke Naam!</p>
 
-    <!-- Floating Audio Pill -->
-    <div class="audio-player-pill">
-        <button class="play-disc-btn" id="playBtn" onclick="toggleAudio()" aria-label="Toggle Romantic Music">▶</button>
-        <div class="music-title-wrap">
-            <span class="music-track-name" id="trackName">Touch To Play Song</span>
-            <span class="music-track-sub">Romantic Melody for My Queen 🎵</span>
-        </div>
+      <div class="music-bar" onclick="toggleAudio()">
+        <button class="music-btn" id="playBtn">▶</button>
+        <div class="music-title" id="musicLabel">Gaana sunna hai toh tap kar meri jaan 🎶</div>
+        <audio id="bgTrack" loop preload="auto" src="song.mp3"></audio>
+      </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="sub-tag">Designed Exclusively For You</div>
-        <div class="hero-script">To My Irreplaceable Partner</div>
-        <h1>Every Heartbeat, <span>Every Breath, Always You</span></h1>
-        <p>No distance, no routine, and no ordinary days could ever diminish how beautiful, special, and loved you are to me. Here is my heart, wrapped in hugs and kisses.</p>
-        <div>
-            <button class="btn-love" onclick="openLetterModal()">Open My Personal Love Letter 💌</button>
-        </div>
-    </section>
+    <div class="gif-theater">
+      <div class="gif-frame">
+        <img id="activeGif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2RraGppN3pvcXo0cTNkZGx6b3RhcnY3MHUzbWF5aWFqbm1jdm1nMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vz58J8shFW6BvqnYTm/giphy.gif" alt="Couple Hug" />
+      </div>
+      <div class="caption-box" id="activeCaption">
+        "Chal idhar aa, ek tight wali warm jhappi le chup chap! 🫂❤️"
+      </div>
 
-    <!-- Interactive Warmth Dock -->
-    <div class="interactive-dock">
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--primary-dark);">Unlimited Real Affection</h3>
-        <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 4px;">Tap whenever you need reassurance, a tight embrace, or sweet kisses:</p>
-        <div class="dock-buttons">
-            <button class="btn-love" onclick="deliverHug()">
-                🤗 Real Tight Hug <span class="counter-badge" id="hugTally">0</span>
-            </button>
-            <button class="btn-love" onclick="deliverKiss()">
-                💋 Real Sweet Kiss <span class="counter-badge" id="kissTally">0</span>
-            </button>
-        </div>
+      <div class="gif-controls">
+        <button class="glow-btn" onclick="nextMoments('hug')">Pyaari Jhappi (Hug) 🫂</button>
+        <button class="glow-btn" onclick="nextMoments('kiss')">Pyari Si Chummi (Kiss) 💋</button>
+      </div>
     </div>
 
-    <!-- Real Video Moments (Auto-Playing, High Quality, Clean & Romantic) -->
-    <main class="container">
-        <div class="section-header">
-            <h2>Real Hugs & Pure Devotion</h2>
-            <p>High-definition real couples sharing the exact tenderness I hold in my heart for you.</p>
-        </div>
+    <div class="dialogue-grid">
 
-        <div class="real-video-grid">
-            
-            <!-- Real Hug 1: Warm Golden Hour Embrace -->
-            <div class="video-card-real">
-                <div class="video-box">
-                    <span class="video-tag-pill">✨ The Safe Haven</span>
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=700&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-couple-hugging-each-other-at-sunset-41484-large.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-meta">
-                    <h3>The Sunset Embrace</h3>
-                    <p>When the noise of the entire world fades away, and all that matters is holding you tight in safe arms.</p>
-                </div>
-            </div>
+      <div class="card-item" onclick="showDialog('Bantai Ka Tashan 😎', 'Log bolte hain darr ke aage jeet hai, main bolta hoon Shubhi ke gusse ke aage hi meri haar hai! Tu 2 minute baat na kare na toh dil mein cylinder blast ho jata hai meri jaan! 💥❤️')">
+        <div class="card-title">💣 Bantai Ka Tashan</div>
+        <div class="card-desc">Tere samne hero bhi zero ban jata hai!</div>
+      </div>
 
-            <!-- Real Kiss 1: Forehead / Gentle Kiss -->
-            <div class="video-card-real">
-                <div class="video-box">
-                    <span class="video-tag-pill">🤍 Pure Respect & Affection</span>
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-young-couple-walking-along-the-beach-at-sunset-41485-large.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-meta">
-                    <h3>Strolls By Your Side</h3>
-                    <p>Walking through life with our hands entwined, whispering how much you mean to me under the open sky.</p>
-                </div>
-            </div>
+      <div class="card-item" onclick="showDialog('KTM & Petrol Wala Pyaar 🏍️', 'Agar main KTM bike hoon na, toh tu meri Speed aur Petrol dono hai! Tere bina meri gaadi ek inch bhi nahi chalegi baby! 🚀🔥')">
+        <div class="card-title">🏍️ Petrol Wala Pyaar</div>
+        <div class="card-desc">Full speed mein tere piche aane ka licence hai!</div>
+      </div>
 
-            <!-- Real Hug 2: Cozy Intimate Cuddle -->
-            <div class="video-card-real">
-                <div class="video-box">
-                    <span class="video-tag-pill">🌸 Sweetest Kiss</span>
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=700&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-romantic-couple-kissing-and-hugging-in-a-forest-41486-large.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-meta">
-                    <h3>The Deepest Passion</h3>
-                    <p>Every kiss is a silent promise: you are my past, my present, and my brightest tomorrow.</p>
-                </div>
-            </div>
+      <div class="card-item" onclick="showDialog('Sapne Wali Larai 🥺', 'Arey meri gundi, kal raat jo tune sapne mein dekha ki maine kisi aur ko dekha—uski maafi maangta hoon! Pehle se hi sorry bol raha hoon, ab gussa thook de na! 👉👈🍫')">
+        <div class="card-title">🥺 Sapne Ki Maafi</div>
+        <div class="card-desc">Bina baat ke gussa hone ka talent sirf tera hai!</div>
+      </div>
 
-            <!-- Real Video 4: Sunset Dance & Connection -->
-            <div class="video-card-real">
-                <div class="video-box">
-                    <span class="video-tag-pill">🌹 Forever Connected</span>
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=700&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-happy-couple-enjoying-time-together-in-nature-41488-large.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-meta">
-                    <h3>Laughter & Soft Hugs</h3>
-                    <p>Because your happiness and your warm smile are the finest sights this universe has to offer.</p>
-                </div>
-            </div>
+      <div class="card-item" onclick="showDialog('Challan Katwa Dunga 🚨', 'Itna illegally cute face leke ghoomna allowed nahi hai section 143 ke tehat! Seedha mere dil ke lockup mein lifetime arrest kar raha hoon tujhe! 🔒❤️')">
+        <div class="card-title">🚨 Illegal Cuteness</div>
+        <div class="card-desc">Shubhi ke chehre par 500 ka fine banta hai!</div>
+      </div>
 
-            <!-- YouTube Classic Romantic Love Music Video Embed -->
-            <div class="video-card-real" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto; width: 100%;">
-                <div class="video-box" style="height: 420px;">
-                    <iframe 
-                        style="width: 100%; height: 100%; border: none;" 
-                        src="https://www.youtube-nocookie.com/embed/rtOvBOTyX00?controls=1&rel=0" 
-                        title="Perfect Romance Song" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="video-meta">
-                    <h3>"Perfect" — A Song Dedicated to You</h3>
-                    <p>Listen to these lyrics, close your eyes, and remember that every word reflects how I look at you every day.</p>
-                </div>
-            </div>
+      <div class="card-item full" onclick="showDialog('Tere Gunde Ki Dil Se Shayari 📜', 'Tere aane se meri simple si life full HD ho gayi baby:<br/><br/><i>“Aankhein teri teekhi jaise mirchi ka aachar,<br/>Chehra tera itna pyara, kar gaya seedha prahaar!<br/>Duniya bhar ki ladkiyan side mein rakh ke dekh loon,<br/>Meri Shubhi Mishra pe hi aake rukta hai mera pyaar!”</i> 🌹👑')">
+        <div class="card-title">📜 Gunde Ki Romantic Shayari (Tap Kar)</div>
+        <div class="card-desc">Full 4K Dil se nikli romantic shayari padh le!</div>
+      </div>
 
-        </div>
-    </main>
-
-    <!-- Romantic Letter Popup Modal -->
-    <div class="modal-overlay" id="letterModal">
-        <div class="letter-container">
-            <button class="close-letter-btn" onclick="closeLetterModal()">&times;</button>
-            <h3>To The Love Of My Life</h3>
-            <div class="letter-body">
-                <p>My dearest partner,</p>
-                <br>
-                <p>I built this space simply to remind you of how extraordinary you are. Sometimes words fall short, but whenever you feel tired, distant, or down, know that my arms are always open to hold you, protect you, and lift you up.</p>
-                <br>
-                <p>You make every single day brighter with your grace, kindness, and beauty. You deserve all the tender hugs, passionate kisses, and unconditional devotion in the world.</p>
-            </div>
-            <div class="letter-sig">Forever Yours, with all my love.</div>
-        </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Crafted solely for my life partner • You are everything to me ❤️</p>
-    </footer>
+    <button class="love-btn" onclick="openChapriLetter()">
+      💌 Mera Emotional & Chapri Love Letter Khol 💌
+    </button>
 
-    <!-- Interactive Logic -->
-    <script>
-        // Floating Background Particles (Hearts, Lips, Petals)
-        const canvas = document.getElementById('ambientCanvas');
-        const particles = ['❤️', '💋', '🌸', '✨', '🌹', '💖'];
+  </div>
 
-        function spawnParticle() {
-            const p = document.createElement('div');
-            p.classList.add('ambient-symbol');
-            p.innerText = particles[Mat
+  <div class="modal-screen" id="popupModal" onclick="closePopup(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <span class="close-icon" onclick="closePopup()">&times;</span>
+      <h2 id="popupTitle" style="color: #05d9e8; font-size: 20px; font-family: 'Permanent Marker', cursive;"></h2>
+      <div id="popupContent" class="modal-text-content"></div>
+    </div>
+  </div>
+
+  <script>
+    // Floating Background Particles
+    const icons = ['❤️', '🔥', '💋', '🫂', '✨', '🌹'];
+    function makeHeart() {
+      const h = document.createElement('div');
+      h.className = 'bg-heart';
+      h.innerText = icons[Math.floor(Math.random() * icons.length)];
+      h.style.left = Math.random() * 92 + 'vw';
+      h.style.fontSize = (Math.random() * 14 + 18) + 'px';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 6000);
+    }
+    setInterval(makeHeart, 450);
+
+    // Couple GIFs (Real human emotion GIFs)
+    const hugGifs = [
+      {
+        url: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGhnMzduenhyMGF5dzlyazM1YjlvMjhzdjdyZnZpNGc1aDNjOWdtYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif",
+        caption: "Chal idhar aa, ekdum tightly pakad ke rakhunga tujhe! 🫂❤️"
+      },
+      {
+        url: "https://media.giphy.com/media/lrr9rHuoJOE0w/giphy.gif",
+        caption: "Saari thakan gayab ho jati hai jab tu gale lagti hai Shubhi! 🥺"
+      }
+    ];
+
+    const kissGifs = [
+      {
+        url: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpib2YxaHFkYXJkMXp4azF6am00MmJhcGkxc2V0NXp3dTNubHk2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/G3va3MQVM8jhFA9XA3/giphy.gif",
+        caption: "Tere maathe pe ek pyari si kissi meri pyaari Shubhi ke liye! 💋✨"
+      },
+      {
+        url: "https://media.giphy.com/media/R6gVNROjZaBlYWo4OW/giphy.gif",
+        caption: "Pout mat bana, chup-chap ek sweet si chummi le le! 😘"
+      }
+    ];
+
+    let hugIdx = 0;
+    let kissIdx = 0;
+
+    function nextMoments(type) {
+      const img = document.getElementById('activeGif');
+      const caption = document.getElementById('activeCaption');
+      
+      if (type === 'hug') {
+        hugIdx = (hugIdx + 1) % hugGifs.length;
+        img.src = hugGifs[hugIdx].url;
+        caption.innerText = hugGifs[hugIdx].caption;
+      } else {
+        kissIdx = (kissIdx + 1) % kissGifs.length;
+        img.src = kissGifs[kissIdx].url;
+        caption.innerText = kissGifs[kissIdx].caption;
+      }
+
+      confetti({ particleCount: 25, spread: 50 });
+    }
+
+    // Audio Play/Pause
+    const audio = document.getElementById('bgTrack');
+    const playBtn = document.getElementById('playBtn');
+    const musicLabel = document.getElementById('musicLabel');
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          playBtn.innerText = '❚❚';
+          musicLabel.innerText = 'Dildara chal raha hai full volume pe 🔥';
+        }).catch(err => {
+          console.log("Audio waiting for user gesture:", err);
+        });
+      } else {
+        audio.pause();
+        isPlaying = false;
+        playBtn.innerText = '▶';
+        musicLabel.innerText = 'Gaana paused hai (Tap kar)';
+      }
+    }
+
+    // Modal Control
+    function showDialog(title, text) {
+      document.getElementById('popupTitle').innerText = title;
+      document.getElementById('popupContent').innerHTML = text;
+      document.getElementById('popupModal').style.display = 'flex';
+      confetti({ particleCount: 30, spread: 60 });
+    }
+
+    function closePopup() {
+      document.getElementById('popupModal').style.display = 'none';
+    }
+
+    function openChapriLetter() {
+      const letter = `
+        <p><strong>Suno Meri Shubhi Mishra,</strong></p><br/>
+        <p>Apan ko sophisticated banna nahi aata aur na hi lambi-lambi english fekni aati hai. Seedha point pe bol raha hoon: <strong>Tu meri jaan hai!</strong></p><br/>
+        <p>Pata hai tere aane se pehle apan full reckless ghoomta tha, par tere gusse aur teri choti-choti daant ne apan ko seedha bana diya hai. Tere wo bina baat ke nakhrre, wo baat-baat pe 'Hatt jao' bolna, aur phir achanak gale lag jana—kasam se dil pe bullet train chala deta hai!</p><br/>
+        <p>Main promise karta hoon:</p>
+        <ul style="margin: 8px 0 8px 18px;">
+          <li>KTM pe ghoomaoon ya cycle pe, peeche sirf tu hi baithegi. 🏍️</li>
+          <li>Tere har bakwaas joke pe bina sharam ke zor-zor se hasunga. 😂</li>
+          <li>Jab bhi tu gussa karegi, dande nahi... chocolate aur hugs leke aaunga! 🍫</li>
+          <li>Aur zindagi bhar sirf aur sirf tera loyal gunda ban ke rahunga. 💍</li>
+        </ul><br/>
+        <p>Isliye ab zyada nakhre mat kar, aur humesha meri ban ke reh samjhi na? Deal pakki hai, stamp paper pe sign ho chuka hai! 😎❤️</p><br/>
+        <p style="text-align: right; color: #ff2a6d; font-weight: bold;">
+          Tera Permanent Lover & Gunda ❤️🔥
+        </p>
+      `;
+      showDialog("Mera Dil Ka Letter 💌", letter);
+    }
+  </script>
+</body>
+            </html>
+
