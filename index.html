@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forever & Always, Shubhi Mishra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0d060a;
+      --bg-card: #180d14;
+      --accent: #ff3366;
+      --accent-soft: #ff6584;
+      --gold: #d4af37;
+      --text: #f5e9ec;
+      --text-muted: #b89ca4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Floating Hearts Background */
+    .heart-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      bottom: -100px;
+      color: rgba(255, 51, 102, 0.25);
+      animation: floatUp 12s linear infinite;
+      font-size: 20px;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.8; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Container */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 0;
+    }
+    .hero h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: var(--accent-soft);
+      text-shadow: 0 0 20px rgba(255, 101, 132, 0.4);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      letter-spacing: 2px;
+      margin: 10px 0 20px;
+      background: linear-gradient(45deg, #fff, #ff8da1, var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      max-width: 650px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Section Styling */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      text-align: center;
+      margin: 70px 0 35px;
+      color: var(--gold);
+      position: relative;
+    }
+    .section-title::after {
+      content: '♥';
+      display: block;
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-top: 5px;
+    }
+
+    /* Video GIF Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .video-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 12px;
+      border: 1px solid rgba(255, 51, 102, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+    .video-card video {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .video-card p {
+      margin-top: 12px;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Interactive Scrapbook */
+    .scrapbook-container {
+      background: #150a12;
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+    .scrapbook-page {
+      display: none;
+      animation: fadeIn 0.6s ease-in-out forwards;
+    }
+    .scrapbook-page.active {
+      display: block;
+    }
+    .scrapbook-page h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--accent-soft);
+      margin-bottom: 15px;
+    }
+    .scrapbook-page p {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .scrapbook-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+    .btn {
+      background: linear-gradient(135deg, var(--accent), #990033);
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    /* 50 Quotes Viewer */
+    .quote-box {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      border: 1px solid rgba(255, 51, 102, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .quote-count {
+      font-size: 0.9rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+    .quote-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart-bg" id="heartContainer"></div>
+
+  <div class="container">
+    <header class="hero">
+      <h2>My Whole World,</h2>
+      <h1>Shubhi Mishra</h1>
+      <p>"In your arms is where my heart beats the loudest and rests the easiest. Every breath I take whispers your name."</p>
+    </header>
+
+    <section>
+      <h2 class="section-title">Our Warmest Whispers</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <video autoplay loop muted playsinline src="cuddle-couple.mp4"></video>
+          <p>Tangled up with you forever</p>
+        </div>
+        <div class="video-card">
+          <video autoplay loop muted playsinline src="hug.mp4"></video>
+          <p>The safest place in the world</p>
+        </div>
+        <div class="video-card">
+          <video autoplay loop muted playsinline src="love-hug.mp4"></video>
+          <p>Gentle forehead kisses & warm touches</p>
+        </div>
+        <div class="video-card">
+          <video autoplay loop muted playsinline src="couple-cuddle.mp4"></video>
+          <p>Falling asleep wrapped around your soul</p>
+        </div>
+        <div class="video-card">
+          <video autoplay loop muted playsinline src="anupama-anupamaa.mp4"></video>
+          <p>Cherishing every soft, quiet second</p>
+        </div>
+        <div class="video-card">
+          <video autoplay loop muted playsinline src="love-couple.mp4"></video>
+          <p>Soon, this will always be us</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top: 60px;">
+      <h2 class="section-title">The Scrapbook of Us</h2>
+      <div class="scrapbook-container">
+        
+        <div class="scrapbook-page active" data-page="1">
+          <h3>Chapter I: When My Universe Changed</h3>
+          <p>Shubhi, before you entered my life, everything was ordinary. The moment you smiled, every star aligned in my sky.</p>
+          <p>Your laugh became my favorite rhythm, your voice became my peace, and your eyes became the mirror where I finally found my purpose.</p>
+        </div>
+
+        <div class="scrapbook-page" data-page="2">
+          <h3>Chapter II: The Heat of Our Connection</h3>
+          <p>There is a raw, electric warmth every time our hands touch. It's the kind of passion that makes the clock freeze and the rest of the world fade completely to black.</p>
+          <p>Holding you close against my chest isn't just love—it is an intense, unyielding craving to keep you safe and adored for the rest of time.</p>
+        </div>
+
+        <div class="scrapbook-page" data-page="3">
+          <h3>Chapter III: The Unbreakable Vow</h3>
+          <p>Through every tear, every late-night cuddle, every dream, and every quiet moment—I choose you, Shubhi Mishra.</p>
+          <p>No matter where this life takes us, my hand will always seek yours in the dark, and my heart will never stop beating for you.</p>
+        </div>
+
+        <div class="scrapbook-nav">
+          <button class="btn" id="prevScrap">← Previous</button>
+          <span style="font-size: 0.9rem; color: var(--gold);" id="scrapbookIndex">Page 1 of 3</span>
+          <button class="btn" id="nextScrap">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top: 60px;">
+      <h2 class="section-title">50 Love Letters for Shubhi</h2>
+      <div class="quote-box">
+        <div class="quote-count" id="quoteCounter">Letter #1 of 50</div>
+        <div class="quote-text" id="quoteDisplay">"You are my today and all of my tomorrows, Shubhi."</div>
+        <div class="quote-controls">
+          <button class="btn" id="prevQuote">Previous</button>
+          <button class="btn" id="randomQuote">Surprise Me</button>
+          <button class="btn" id="nextQuote">Next</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Floating Hearts Animation
+    const heartContainer = document.getElementById('heartContainer');
+    const heartSymbols = ['♥', '💖', '💕', '💗'];
+    for (let i = 0; i < 22; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 12 + 's';
+      heart.style.animationDuration = (8 + Math.random() * 8) + 's';
+      heartContainer.appendChild(heart);
+    }
+
+    // Scrapbook Logic
+    const pages = document.querySelectorAll('.scrapbook-page');
+    let currentScrap = 0;
+    const scrapIndexText = document.getElementById('scrapbookIndex');
+
+    function showScrap(index) {
+      pages.forEach((p, i) => p.classList.toggle('active', i === index));
+      scrapIndexText.innerText = `Page ${index + 1} of ${pages.length}`;
+    }
+    document.getElementById('prevScrap').onclick = () => {
+      currentScrap = (currentScrap - 1 + pages.length) % pages.length;
+      showScrap(currentScrap);
+    };
+    document.getElementById('nextScrap').onclick = () => {
+      currentScrap = (currentScrap + 1) % pages.length;
+      showScrap(currentScrap);
+    };
+
+    // 50 Quotes Array
+    const quotes = [
+      "You are my today and all of my tomorrows, Shubhi.",
+      "In a sea of billions, my eyes will always search only for you.",
+      "The safest place in the entire world is right inside your embrace.",
+      "I love you not only for who you are, but for who I become when I am with you.",
+      "Every time you touch me, a fire ignites that no distance can put out.",
+      "You are the poem my heart always wanted to write.",
+      "Your skin against mine is my favorite feeling in this life.",
+      "I fall in love with you deeper with every breath you take beside me.",
+      "Shubhi, you are the dream I never ever want to wake up from.",
+      "My soul recognized yours long before my lips ever kissed you.",
+      "No matter how cold the world gets, your hugs keep me completely warm.",
+      "You are my greatest weakness and my absolute greatest strength.",
+      "I crave you in the sweetest, deepest, and most passionate ways.",
+      "My favorite place to rest my head is right over your heartbeat.",
+      "You hold my heart so gently, yet you command my entire world.",
+      "Your love is like a storm that I never want shelter from.",
+      "Waking up with you wrapped around me is the only heaven I care about.",
+      "Every kiss with you feels like our first and forever combined.",
+      "Shubhi, your name is permanently etched into every beat of my heart.",
+      "I didn’t just fall for you; I surrendered completely to you.",
+      "You are the only person who can calm my chaos with a single look.",
+      "When we cuddle, the entire world outside ceases to exist.",
+      "My hands fit into yours like they were sculpted specifically for them.",
+      "You are the spark to my flame and the peace to my soul.",
+      "I want all of your moods, all of your days, and every single second of your life.",
+      "Loving you is as effortless and vital as breathing.",
+      "The warmth of your lips is the sweetest addiction I will ever have.",
+      "You are my home, my refuge, and my favorite adventure.",
+      "There is no version of my future where you are not right by my side.",
+      "Holding you tight while you drift off to sleep is my sweetest luxury.",
+      "You make me feel emotions so deep they scare and empower me at once.",
+      "I love the way you fit into my arms like you were made for me.",
+      "Shubhi, you make ordinary moments feel like sheer magic.",
+      "Every late-night whisper with you is a secret treasure I guard forever.",
+      "You are the flame that lights my darkest days.",
+      "Even silence with you feels like an intimate conversation.",
+      "I promise to love you fiercely through every chapter of our lives.",
+      "One touch from your fingers sends shivers straight to my spine.",
+      "You are my favorite thought every morning and my last prayer every night.",
+      "In your embrace, I find every answer I've ever searched for.",
+      "Your voice is my favorite melody, soothing every corner of my soul.",
+      "I would live a thousand lifetimes just to meet and hold you again.",
+      "You make my heart race and relax all at the exact same second.",
+      "Every curve of your soul matches the depths of mine.",
+      "I never knew what true devotion was until I looked into your eyes, Shubhi.",
+      "Our love isn’t just a feeling; it’s an eternal bond.",
+      "To hold you close and whisper how much I love you is my greatest joy.",
+      "Forever won't be long enough to give you all the love you deserve.",
+      "You are mine, I am yours, and our story is forever written in the stars.",
+      "I love you endlessly, passionately, and unconditionally, my baby Shubhi Mishra."
+    ];
+
+    let currentQuote = 0;
+    const quoteDisplay = document.getElementById('quoteDisplay');
+    const quoteCounter = document.getElementById('quoteCounter');
+
+    function updateQuote(index) {
+      quoteDisplay.style.opacity = '0';
+      setTimeout(() => {
+        quoteDisplay.innerText = `"${quotes[index]}"`;
+        quoteCounter.innerText = `Letter #${index + 1} of ${quotes.length}`;
+        quoteDisplay.style.opacity = '1';
+      }, 200);
+    }
+
+    document.getElementById('nextQuote').onclick = () => {
+      currentQuote = (currentQuote + 1) % quotes.length;
+      updateQuote(currentQuote);
+    };
+    document.getElementById('prevQuote').onclick = () => {
+      currentQuote = (currentQuote - 1 + quotes.length) % quotes.length;
+      updateQuote(currentQuote);
+    };
+    document.getElementById('randomQuote').onclick = () => {
+      let rand;
+      do { rand = Math.floor(Math.random() * quotes.length); } while (rand === currentQuote);
+      currentQuote = rand;
+      updateQuote(currentQuote);
+    };
+  </script>
+</body>
+</html>
